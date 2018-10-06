@@ -4,8 +4,8 @@ A battleship game that I built to boost my ReactJS skills. The game allows 2 pla
 
 Installation:
 
-1. Install npm on your computer
+1. Install **npm** on your computer
 2. Install all the dependecies by running the following command in the root directory of this repo:
-  npm install
+  **npm install**
 3. Run the game:
-  npm start
+  **npm start**
