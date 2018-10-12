@@ -18,8 +18,8 @@ function Square(props) {
     var id = "damaged";
   }
 
-  if (props.value == ".") {
-    var valueToDisplay = ".";
+  if (props.value == "•") {
+    var valueToDisplay = "•";
   }
   else if (props.value == "-") {
     var valueToDisplay = "X";
@@ -56,11 +56,11 @@ class ShipConfig extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="shipConfig">
         <h3>Setup your battlefield</h3>
         <div id="controlBody">
           <form>
-            <p><b>Select type of ship:</b></p>
+            <p classname="childHeading"><b>Select type of ship:</b></p>
             <select value={this.state.type} onChange={this.handleTypeChange}>
               <option value="0">Choose ship size</option>
               <option value="1">Carrier (1 cell)</option>
@@ -73,7 +73,7 @@ class ShipConfig extends React.Component {
               <option value="v">Vertical</option>
             </select>
           </form>
-          <p><b>Number of ships left:</b></p>
+          <p className="childHeading"><b>Number of ships left:</b></p>
           <p>Carriers: {this.props.shipsLeft[0]}</p>
           <p>Battleships: {this.props.shipsLeft[1]}</p>
           <p>Cruisers: {this.props.shipsLeft[2]}</p>
@@ -287,7 +287,7 @@ class Game extends React.Component {
         })
       }
       else {
-        this.state.players[this.state.playerCounter%2].hits.push(new Cell(row, column, "."));
+        this.state.players[this.state.playerCounter%2].hits.push(new Cell(row, column, "•"));
         this.setState({
           grids: this.updateSquares(),
           playerMadeHisMove: true,
@@ -673,19 +673,22 @@ class Game extends React.Component {
     //BATTLESHIP CODE
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <h2>Player 1</h2>
-          {this.renderBoard(0)}
-          <div className="playerControls">
-            {this.renderPlayerControls(0)}
+      <div classname="main">
+        <h1>Battleship</h1>
+        <div className="game">
+          <div className="game-board">
+            <h2>Player 1</h2>
+            {this.renderBoard(0)}
+            <div className="playerControls">
+              {this.renderPlayerControls(0)}
+            </div>
           </div>
-        </div>
-        <div className="game-board">
-          <h2>Player 2</h2>
-          {this.renderBoard(1)}
-          <div className="playerControls">
-            {this.renderPlayerControls(1)}
+          <div className="game-board">
+            <h2>Player 2</h2>
+            {this.renderBoard(1)}
+            <div className="playerControls">
+              {this.renderPlayerControls(1)}
+            </div>
           </div>
         </div>
       </div>
